@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @seal.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <%= image_tag(@seal.photo_url, width: '100%') %>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <p>Some awesome description of our amazing seal.</p>
+      <p>Amount: <%= humanized_money_with_symbol(@seal.price) %></p>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'seal_id', @seal.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

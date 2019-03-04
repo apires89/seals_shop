@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <h1>Seals</h1>
+    <% @seals.each do |seal| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= link_to image_tag(seal.photo_url), seal_path(seal) %>
+          <div class="caption">
+            <h3><%= link_to seal.name, seal_path(seal) %></h3>
+            <p><%= seal.category.name %></p>
+            <p>Amount: <%= humanized_money_with_symbol(seal.price) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
